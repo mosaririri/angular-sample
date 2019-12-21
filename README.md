@@ -1,5 +1,7 @@
 # 起動までの操作
 
+- リポジトリをクローン
+
 - npm install --save express @types/express body-parser @types/body-parser @types/compression
 
 - npm install --save-dev npm-run-all nodemon

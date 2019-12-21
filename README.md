@@ -1,3 +1,31 @@
+# 起動までの操作
+
+- リポジトリをクローン
+
+- docker-compose up -d でコンテナを実行させる
+
+- npm start
+
+# 終了時の操作
+
+- ctrl-Cで終了
+
+- docker-dompose stopでコンテナを終了させる
+
+## 構成
+
+- dbのみdocker-composeで構築している為、npm start前にdocker-composeを実行する必要がある
+
+- 同様に終了時にはコンテナも終了させる
+
+# 参考（というか摸倣）したサイト
+
+https://qiita.com/baster/items/5b6a2e49030067b6e55c
+
+ど素人にもわかりやすく、かつDBはコンテナ化したいなぁという要望にドンピシャでした。
+有益な情報に感謝。
+
+
 # AngularSample
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.

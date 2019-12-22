@@ -8,6 +8,15 @@ const usersModel: mongoose.Model<mongoose.Document> = mongoose.model(
       },
       name: {
         type: String
+      },
+      password: {
+        type: String
+      },
+      positionCd: {
+        type: Number
+      },
+      storeCd: {
+        type: Number
       }
     })
 );

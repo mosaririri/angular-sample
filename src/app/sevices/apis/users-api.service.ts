@@ -14,4 +14,8 @@ export class UsersApiService {
   getUsers(){
     return this.http.get('api/users');
   }
+
+  getUserById(id: string){
+    return this.http.get('api/users/read-user/' + id);
+  }
 }

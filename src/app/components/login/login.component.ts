@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersApiService } from '../../sevices/apis/users-api.service';
 import { FormControl, Validator } from '@angular/forms';
 
 export class PrivateAPIKeySet {
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   hide = true;
 
   constructor(
+    private usersApiService: UsersApiService,
   ) { }
 
   ngOnInit() {
@@ -25,5 +27,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log(this.keySet);
+    console.log(this.keySet.key);
+    console.log(this.keySet.secret);
+    // this.usersApiService.getUserById()
+
   }
 }

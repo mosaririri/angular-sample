@@ -2,3 +2,23 @@
 <p>{{ user.id }}</p>
 <p>{{ user.name }}</p>
 <p>{{ user.password }}</p>
+<mat-card class="user-edit-card">
+   <mat-card-header>
+       <mat-card-title class="user-edit-title">User edit form</mat-card-title>
+   </mat-card-header>
+   <mat-card-content>
+       <form (ngSubmit)="onSubmit()" class="user-edit-form" #userEditForm="ngForm">
+           <mat-form-field>
+               <input matInput placeholder="holder2" id="key" [(ngModel)]="user.name" name="key" #key="ngModel" required>
+               <mat-error *ngIf="key.errors?.required">入力してください</mat-error>
+           </mat-form-field>
+           <mat-form-field>
+               <input [type]="hide ? 'password' : 'text'" matInput placeholder="holder3" id="secret" [(ngModel)]="user.password" name="secret" #secret="ngModel" required>
+               <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility' : 'visibility_off' }}</mat-icon>
+               <mat-error *ngIf="secret.errors?.required">入力してください</mat-error>
+           </mat-form-field>
+           <button type="submit" mat-raised-button color="primary" [disabled]="userEditForm.invalid">edit</button>
+       </form>
+   </mat-card-content> 
+</mat-card>
+

@@ -8,7 +8,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./user-edit.component.sass']
 })
 export class UserEditComponent implements OnInit {
-  user: any;
+  hide = true;
+
+ user: any;
 
   constructor(
     private userApiService: UsersApiService,
@@ -18,8 +20,12 @@ export class UserEditComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.userApiService.getUserById(id).subscribe(res => {
+      console.log(res);
       this.user = res;
     });
   }
 
+  onSubmit(){
+    console.log(this.user);
+  }
 }

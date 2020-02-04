@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SessionService } from './services/session.service';
+import { Session } from 'src/class/chart';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,28 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-sample';
+
+  public login = false;
+
+  constructor(
+    public sessionService: SessionService,
+  ){}
+
+  ngOnInit() {
+    this.sessionService.sessionState.subscribe((session: Session) => {
+      console.log('session: ' + session);
+      
+      if(session){
+        this.login = session.login;
+      }
+    });
+    console.log('app-component-login:' + this.login);
+    
+  }
+
+
+  logout() {
+    this.sessionService.logout();
+  }
+
 }

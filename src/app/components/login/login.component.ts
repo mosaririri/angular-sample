@@ -5,6 +5,8 @@ import { FormControl, Validator } from '@angular/forms';
 import { Router } from '@angular/router';
 import { pipe } from 'rxjs';
 import { first } from 'rxjs/operators'
+import { Session } from 'protractor';
+import { SessionService } from 'src/app/services/session.service';
 
 export class PrivateAPIKeySet {
   constructor(
@@ -27,19 +29,19 @@ export class LoginComponent implements OnInit {
     private usersApiService: UsersApiService,
     private authService: AuthService,
     public router: Router,
+    private sessionService: SessionService,
   ) { }
 
   ngOnInit() {
+    
   }
 
   onSubmit() {
-    console.log(this.keySet);
-    console.log(this.keySet.key);
-    console.log(this.keySet.secret);
     
     this.authService.login(this.keySet.key, this.keySet.secret).subscribe((isAuth) => {
       if (isAuth) {
         console.log('ok');
+        this.sessionService.login();
       }else{
         console.log('ng');
       }

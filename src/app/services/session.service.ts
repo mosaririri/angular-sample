@@ -31,4 +31,8 @@ export class SessionService {
     console.log('sessionService.login = ' + this.session.login);
     this.router.navigate(['/login']);
   }
+
+  isLogin():boolean {
+    return this.session.login;
+  }
 }

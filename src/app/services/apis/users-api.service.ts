@@ -18,4 +18,8 @@ export class UsersApiService {
   getUserById(id: string){
     return this.http.get('api/users/read-user/' + id);
   }
+
+  update(id: string, body: any){
+    return this.http.put('api/users/update-user/' + id, body);
+  }
 }

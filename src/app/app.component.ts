@@ -21,7 +21,7 @@ export class AppComponent {
       console.log('session: ' + session);
       
       if(session){
-        this.login = session.login;
+        this.login = session.isLogin();
       }
     });
     console.log('app-component-login:' + this.login);

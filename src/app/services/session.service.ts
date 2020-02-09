@@ -18,9 +18,9 @@ export class SessionService {
     private router: Router,
   ) { }
 
-  login(): void {
-    this.session.login = true;
-    console.log('sessionService.login = ' + this.session.login);
+  login(id: string): void {
+    // セッション情報を登録
+    this.sessionSubject.next(this.session.regist(id));
     
     this.sessionSubject.next(this.session);
     this.router.navigate(['/']);
@@ -28,7 +28,10 @@ export class SessionService {
 
   logout(): void {
     this.sessionSubject.next(this.session.reset());
-    console.log('sessionService.login = ' + this.session.login);
     this.router.navigate(['/login']);
+  }
+
+  isLogin():boolean {
+    return this.session.isLogin();
   }
 }

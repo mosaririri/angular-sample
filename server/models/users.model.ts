@@ -3,6 +3,9 @@ import * as mongoose from 'mongoose';
 const usersModel: mongoose.Model<mongoose.Document> = mongoose.model(
   'users',
   new mongoose.Schema({
+      _id: {
+        type: String
+      },
       id: {
         type: Number, require: true, unique: true
       },
@@ -13,10 +16,10 @@ const usersModel: mongoose.Model<mongoose.Document> = mongoose.model(
         type: String
       },
       positionCd: {
-        type: Number
+        type: String
       },
       storeCd: {
-        type: Number
+        type: String
       }
     })
 );

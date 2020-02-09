@@ -37,11 +37,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+
+    const key = this.keySet.key;
+    const secret = this.keySet.secret;
     
-    this.authService.login(this.keySet.key, this.keySet.secret).subscribe((isAuth) => {
+    this.authService.login(key, secret).subscribe((isAuth) => {
       if (isAuth) {
         console.log('ok');
-        this.sessionService.login();
+        this.sessionService.login(key);
       }else{
         console.log('ng');
       }
